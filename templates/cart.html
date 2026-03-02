@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock title %}
+
+{% block body %}
+
+<style>
+.cart-box{
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+</style>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">🛒 Your Cart</h2>
+
+  <div class="card cart-box p-4">
+
+    {% if request.session.cart %}
+      <ul class="list-group">
+        {% for item in request.session.cart %}
+          <li class="list-group-item d-flex justify-content-between">
+            {{ item }}
+            <a href="#" class="btn btn-danger btn-sm">Remove</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="text-center mt-4">
+        {% load static %}
+        <a href="{% url 'place_order'  %}" class="btn btn-primary">
+          Proceed to Order
+        </a>
+      </div>
+
+    {% else %}
+      <p class="text-center">Your cart is empty 😢</p>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock body %}

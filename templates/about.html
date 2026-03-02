@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<style>
+
+/* ===== GLOBAL ===== */
+body {
+  background: #f8f9fa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  font-weight: 700;
+  margin: 40px 0;
+}
+
+/* ===== CARD ===== */
+.food-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s;
+  background: white;
+  position: relative;
+}
+
+.food-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.food-img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ===== PRICE ===== */
+.price-old {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.price-new {
+  font-weight: bold;
+  color: green;
+  font-size: 18px;
+}
+
+/* ===== BADGE ===== */
+.badge-offer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* ===== CART FLOAT ===== */
+.cart-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #198754;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+/* ===== TOAST ===== */
+.toast-msg {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: black;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: none;
+}
+
+</style>
+
+<!-- CART COUNTER -->
+<div class="cart-box">
+🛒 Cart: <span id="cart-count">0</span>
+</div>
+
+<!-- TOAST MESSAGE -->
+<div class="toast-msg" id="toast">Item Added to Cart</div>
+
+<div class="container">
+
+<h2 class="section-title">Popular Fast Food</h2>
+
+<div class="row">
+
+<!-- ===== FOOD ITEM ===== -->
+<div class="col-lg-4 col-md-6 col-12 mb-4">
+  <div class="card food-card">
+
+    <span class="badge bg-danger badge-offer">20% OFF</span>
+
+    <img src="{% static 'images/Pav Bhaji.jpg.jpeg' %}" class="food-img">
+
+    <div class="card-body text-center">
+      <h5>Pav Bhaji</h5>
+
+      <p>
+        <span class="price-old">₹120</span>
+        <span class="price-new">₹96</span>
+      </p>
+
+      <!-- QUANTITY CONTROL -->
+      <div class="d-flex justify-content-center mb-2">
+        <button class="btn btn-outline-dark btn-sm" onclick="changeQty(this,-1)">−</button>
+        <span class="mx-3 qty">1</span>
+        <button class="btn btn-outline-dark btn-sm" onclick="changeQty(this,1)">+</button>
+      </div>
+
+      <button class="btn btn-success btn-sm" onclick="addToCart()">Add to Cart</button>
+      <a href="{% url 'order_now' 'Pav Bhaji' %}" class="btn btn-primary btn-sm">Order Now</a>
+    </div>
+
+  </div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* ===== CART SYSTEM ===== */
+let cartCount = 0;
+
+function addToCart() {
+  cartCount++;
+  document.getElementById("cart-count").innerText = cartCount;
+  showToast();
+}
+
+/* ===== QUANTITY CONTROL ===== */
+function changeQty(btn, change) {
+  let qtyElement = btn.parentElement.querySelector(".qty");
+  let qty = parseInt(qtyElement.innerText);
+  qty += change;
+  if (qty < 1) qty = 1;
+  qtyElement.innerText = qty;
+}
+
+/* ===== TOAST ===== */
+function showToast() {
+  let toast = document.getElementById("toast");
+  toast.style.display = "block";
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 1500);
+}
+
+</script>
+
+{% endblock body %} 

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Order Now{% endblock title %}
+
+{% block body %}
+
+<style>
+.order-box{
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+</style>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">🚀 Place Your Order</h2>
+
+  <div class="card order-box p-4">
+
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label>Name</label>
+        <input type="text" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label>Phone</label>
+        <input type="text" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label>Address</label>
+        <textarea class="form-control" rows="3" required></textarea>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-success">Confirm Order</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock body %}

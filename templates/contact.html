@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+
+<style>
+
+/* ===== HEADER ===== */
+.contact-header {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("{% static 'images/contact.jpg.jpeg' %}");
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ===== CONTACT BOX ===== */
+.contact-box {
+  background: rgb(85, 119, 241);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  margin-top: 50px;
+}
+
+/* ===== INFO BOX ===== */
+.info-box {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  height: 100%;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+.success-msg {
+  display: none;
+  background: #198754;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+</style>
+
+<!-- ===== HEADER ===== -->
+<div class="contact-header">
+  <div>
+    <h1>Contact Us</h1>
+    <p>We would love to hear from you</p>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="row g-4">
+
+<!-- ===== CONTACT FORM ===== -->
+<div class="col-lg-7">
+<div class="contact-box">
+
+<h3 class="mb-4">Send Message</h3>
+
+<form method="POST" action="{% url 'contact' %}">
+  {% csrf_token %}
+
+  <div class="mb-3">
+    <label class="form-label">Your Name</label>
+    <input type="text" name="name" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email Address</label>
+    <input type="email" name="email" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Subject</label>
+    <input type="text" name="subject" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Message</label>
+    <textarea name="message" class="form-control" rows="4" required></textarea>
+  </div>
+
+  <button class="btn btn-primary w-100">Send Message</button>
+</form>
+{% if success %}
+<div class="success-msg" style="display:block;">
+Message sent successfully! We will contact you soon 🙂
+</div>
+{% endif %}
+
+</div>
+</div>
+
+<!-- ===== CONTACT INFO ===== -->
+<div class="col-lg-5">
+
+  <div class="info-box">
+
+    <h4 class="mb-3">Contact Information</h4>
+
+    <p><strong>📍 Address:</strong><br>
+    Moradabad, Uttar Pradesh, India</p>
+
+    <p><strong>📞 Phone:</strong><br>
+    +91 8057xxxxxx</p>
+
+    <p><strong>📧 Email:</strong><br>
+    tomarxxxxxxxx.com</p>
+
+    <p class="mb-0"><strong>⏰ Opening Hours:</strong><br>
+    Mon — Sun : 10:00 AM — 10:00 PM</p>
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+<script>
+function submitContact(event) {
+  event.preventDefault();
+  document.getElementById("successMsg").style.display = "block";
+  event.target.reset();
+}
+</script>
+
+{% endblock %}

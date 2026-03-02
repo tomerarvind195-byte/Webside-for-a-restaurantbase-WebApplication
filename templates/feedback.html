@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Feedback{% endblock %}
+
+{% block body %}
+
+<style>
+
+/* ===== HEADER ===== */
+.page-header {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("{% static 'images/3.jpg' %}");
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  color: rgb(205, 179, 179);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ===== FORM BOX ===== */
+.feedback-box {
+  background: rgb(105, 58, 155);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  margin-top: 50px;
+}
+
+/* ===== RATING STARS ===== */
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.star {
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.star.active {
+  color: gold;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+.success-msg {
+  display: none;
+  background: #198754;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+</style>
+
+<!-- ===== HEADER ===== -->
+<div class="page-header">
+  <div>
+    <h1>Customer Feedback</h1>
+    <p>Your opinion helps us improve</p>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="row justify-content-center">
+<div class="col-lg-6 col-md-8 col-12">
+
+<div class="feedback-box">
+
+<h3 class="text-center mb-4">Share Your Experience</h3>
+
+<form method="POST" action="{% url 'feedback' %}">
+  {% csrf_token %}
+
+  <input type="hidden" name="rating" id="ratingInput">
+
+  <!-- NAME -->
+  <div class="mb-3">
+    <label class="form-label">Your Name</label>
+    <input type="text" name="name" class="form-control" required>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="mb-3">
+    <label class="form-label">Email Address</label>
+    <input type="email" name="email" class="form-control" required>
+  </div>
+
+  <!-- RATING -->
+  <div class="mb-3 text-center">
+    <label class="form-label d-block">Rate Our Service</label>
+    <div class="rating">
+      <span class="star" onclick="rate(1)">★</span>
+      <span class="star" onclick="rate(2)">★</span>
+      <span class="star" onclick="rate(3)">★</span>
+      <span class="star" onclick="rate(4)">★</span>
+      <span class="star" onclick="rate(5)">★</span>
+    </div>
+  </div>
+
+  <!-- MESSAGE -->
+  <div class="mb-3">
+    <label class="form-label">Your Feedback</label>
+    <textarea name="message" class="form-control" rows="4" required></textarea>
+  </div>
+
+  <button class="btn btn-primary w-100">Submit Feedback</button>
+</form>
+{% if success %}
+<div class="success-msg" style="display:block;">
+Thank you! Your feedback has been submitted ❤️
+</div>
+{% endif %}
+
+</div>
+</div>
+</div>
+</div>
+
+<script>
+let selectedRating = 0;
+
+function rate(starNumber) {
+  selectedRating = starNumber;
+  document.getElementById("ratingInput").value = starNumber;
+
+  let stars = document.querySelectorAll(".star");
+  stars.forEach((star, index) => {
+    if (index < starNumber) {
+      star.classList.add("active");
+    } else {
+      star.classList.remove("active");
+    }
+  })
+}
+</script>
+
+{% endblock %}
