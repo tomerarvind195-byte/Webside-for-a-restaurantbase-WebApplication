@@ -13,7 +13,10 @@
 
 ## 🔗 Live Demo
 
-> 🌐 **[[Add your deployed link here](https://tomerarvind195-byte.github.io/Webside-for-a-restaurantbase-WebApplication/)]** ← (Railway / PythonAnywhere pe deploy karo)
+🌐 **Live Website:**  
+https://tomerarvind195-byte.github.io/Webside-for-a-restaurantbase-WebApplication/
+
+> **Note:** This GitHub Pages deployment showcases the frontend only. To access the complete Django application with backend functionality, deploy the project on Render, Railway, or PythonAnywhere.
 
 ---
 
