@@ -27,7 +27,8 @@ https://tomerarvind195-byte.github.io/Webside-for-a-restaurantbase-WebApplicatio
 | Menu Page | Cart | Order Summary |
 |-----------|------|---------------|
 | ![Menu]<img width="1763" height="4298" alt="image" src="https://github.com/user-attachments/assets/ee41bb8e-5b7e-4bc7-8eb7-592f7cd3cae6" />
-) | ![Cart](screenshots/cart.png) | ![Order](screenshots/order.png) |
+) | ![Cart](<img width="1763" height="844" alt="image" src="https://github.com/user-attachments/assets/32e2edde-75a7-457a-bb32-32daf5c2078b" />
+) | ![Order](screenshots/order.png) |
 
 ---
 
