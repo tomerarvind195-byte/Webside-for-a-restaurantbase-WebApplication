@@ -22,7 +22,7 @@ https://tomerarvind195-byte.github.io/Webside-for-a-restaurantbase-WebApplicatio
 
 ## 📸 Screenshots
 
-| Menu Page | Cart Page | Order Summary |
+| Menu Page | Cart Page | Feedback |
 |-----------|------------|---------------|
 | <img src="https://github.com/user-attachments/assets/ee41bb8e-5b7e-4bc7-8eb7-592f7cd3cae6" width="300"> | <img src="https://github.com/user-attachments/assets/32e2edde-75a7-457a-bb32-32daf5c2078b" width="300"> | <img src="https://github.com/user-attachments/assets/de292957-1928-494c-b1a5-257e0e3af51f" width="300"> |
 
