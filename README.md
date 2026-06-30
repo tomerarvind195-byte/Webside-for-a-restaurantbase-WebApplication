@@ -37,11 +37,11 @@ https://tomerarvind195-byte.github.io/Webside-for-a-restaurantbase-WebApplicatio
 A **mobile-first full-stack food ordering web application** that lets users browse a categorized menu, add items to cart, and place orders — all through a smooth, responsive interface. Built to simulate a real-world food ordering system like Zomato or Swiggy at a smaller scale.
 
 **Key Highlights:**
-- 5+ food categories with dynamic menu management
-- Complete add-to-cart and order management workflow
-- Real-time order tracking via Django backend
-- Mobile-first responsive design across all devices
-- Django admin panel for easy menu and order management
+- 5+ food categories with dynamic menu management.
+- Complete add-to-cart and order management workflow.
+- Real-time order tracking via Django backend.
+- Mobile-first responsive design across all devices.
+- Django admin panel for easy menu and order management.
 
 ---
 
