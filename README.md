@@ -1,6 +1,6 @@
 # 🍔 Fast Food Ordering Web Application
 
-> A responsive full-stack food ordering platform with cart management and order tracking — built with Django, MySQL, and JavaScript.
+> A responsive full-stack food ordering platform with cart management and order tracking — built with Django, MySQL, and JavaScript etc
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat&logo=python)
 ![Django](https://img.shields.io/badge/Django-4.x-green?style=flat&logo=django)
