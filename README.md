@@ -11,7 +11,7 @@
 
 ---
 
-## 🔗 Live Demo -- and other
+## 🔗 Live Demo -- 
 
 🌐 **Live Website:**  
 https://tomerarvind195-byte.github.io/Webside-for-a-restaurantbase-WebApplication/
